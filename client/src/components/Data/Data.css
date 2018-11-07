@@ -1,0 +1,203 @@
+.navbar-brand-survey img {
+    height: 23px;
+    width: 174px;
+    margin-left: 250px;
+    margin-top: 20px;
+    z-index: 100;
+}
+
+.nav-master-survey {
+    background-color: rgba(255,255,255, .8);
+    position: fixed;
+   
+}
+
+#progressBar {
+    width: 15%;
+    float: right;
+    margin-right: 250px;
+  }
+  
+  #progressText {
+    line-height: 12px !important;
+    color: #2C353F;
+  }
+  
+  .progress .determinate {
+    background-color: silver;
+  }
+  
+  .progress {
+    background-color: silver;
+  }
+  
+#question_1 {
+    font-family: lato;
+  }
+
+  #surveyHeader {
+    background: linear-gradient(to right, #5433ff, #20bdff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 1rem !important;
+    font-family: lato;
+   
+    
+  
+  }
+
+  .light {
+    font-weight: 300;
+  }
+
+  #dropDownIcon {
+    font-size: 50px;
+    background-color: rgba(59,137,138, .8);
+    color: white;
+    cursor: pointer;
+  }
+
+  #textarea1, #textarea2, #textarea3, #textarea4, #textarea5, #textarea6, #textarea7, #textarea8  {
+    height: 100px !important;
+    }
+    
+    #textarea1, #textarea2, #textarea3, #textarea4, #textarea5, #textarea6, #textarea7, #textarea8 {
+      background-color: whitesmoke;
+      height: 100px;
+      border-bottom: 0px !important;
+    
+    }
+
+  #save1 {
+    margin-left: 10px;
+  }
+
+  #dropDownHint {
+  margin-top: -15px;
+}
+  #question_hint1, #question_hint2, #question_hint3, #question_hint4, #question_hint5, #question_hint6, #question_hint7 {
+    background-color: whitesmoke;
+  }
+  
+  /* #question_hint2, #question_hint3, #question_hint4, #question_hint5, #question_hint6, #question_hint7 {
+    background-color: silver;
+    
+  } */
+
+  #dropDownIcon2, #dropDownIcon3, #dropDownIcon4, #dropDownIcon5, #dropDownIcon6, #dropDownIcon7, #dropDownIcon8, #dropDownHint  {
+    font-size: 50px;
+    background-color: white;
+    color: silver;
+    cursor: pointer;
+  }
+
+
+  .card-container {
+    height: 650px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
+  padding: 10px;
+  width: 92%;
+  
+}
+
+#q-two-visible, #q-three-visible, #q-four-visible, #q-five-visible, #q-six-visible, #q-seven-visible, #q-eight-visible {
+  height: 650px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
+  padding: 10px;
+  background-color: white;
+  width: 92%
+}
+
+#hidden-question {
+display: none;
+}
+
+#check-icon-one, #check-icon-two, #check-icon-three, #check-icon-four, #check-icon-five, #check-icon-six, #check-icon-seven, #check-icon-eight {
+display: none;
+}
+
+#message-icon {
+  color: #529aca;
+}
+
+
+
+
+    /* Range Slider */
+
+    
+    #range-slider {
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+    }
+    #range-slider #output {
+      background: #359BCF;
+      color: #fff;
+      border-radius: 2px;
+      padding: 3px 7px;
+      margin: 0px 10px;
+      text-align: center;
+      position: relative;
+    }
+  #range-slider #output::before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      height: 0;
+      width: 0;
+      border: solid 6px #359BCF;
+      z-index: -1;
+      border-top-color: white;
+      border-bottom-color: white;
+      border-left-color: white;
+    }
+
+    #message-box {
+      width: 30%;
+    }
+    
+    /* CHROME */
+    #range {
+      -webkit-appearance: none;
+      outline: none;
+      background: lightgray;
+      height: 1px;
+      width: 100%;
+      border-radius: 5px;
+    }
+    #range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #359BCF;
+      cursor: pointer;
+    }
+    
+    /* FIREFOX */
+    #range::-moz-range-thumb {
+      border: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 50%;
+      background: lightblue;
+      cursor: grab;
+    }
+    
+    #range::-moz-range-track {
+      width: 100%;
+      height: 3px;
+      cursor: grab;
+      background: lightblue;
+      border-radius: 5px;
+    }
+
+ 
+ 

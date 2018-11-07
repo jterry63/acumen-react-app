@@ -1,0 +1,22 @@
+.brand-logo img {
+    height: 22px;
+    width: 173px;
+    margin-left: 30px;
+    margin-top: 20px;
+    z-index: 100;
+    
+  }
+
+  .sidebar{
+    background: #252c35;
+    color: #fff;
+    height: 100%;
+ 
+   
+
+}
+.sidebar{
+    width: 250px;
+    float: left;
+    position: absolute;
+}

@@ -1,0 +1,16 @@
+.cards {
+    height: 400px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
+  padding: 20px;
+  
+}
+
+.cards:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0) !important;
+    border: 1px solid whitesmoke;
+}
+
+.card-container {
+    width: 75%;
+    
+}

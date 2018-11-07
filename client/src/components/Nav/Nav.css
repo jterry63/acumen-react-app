@@ -1,0 +1,77 @@
+.navbar-brand img {
+    height: 23px;
+    width: 174px;
+    margin-left: 50px;
+    margin-top: 20px;
+    z-index: 100;
+    
+  }
+
+
+  .navbar-brand img:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  nav {
+    background-color: rgba(0,0,0,0);
+  }
+  .nav-master {
+    background-color: rgba(255,255,255, 0);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+
+  #nav-buttons {
+
+    float: right;
+    margin-right: 5%;
+   }
+
+ #login-buttons {
+   float: right;
+  margin-left: 600px;
+ }
+
+   #loginBtn {
+     color: white;
+   }
+
+   #signUpBtn {
+     color: white;
+     border: 1px solid white;
+     border-radius: 15px;
+     padding: 0 45px;
+     margin-left: 20px;
+     
+   }
+
+   #signUpBtn:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+     
+     
+   }
+
+   #nav1, #nav2, #nav3, #nav4 {
+       color: white;
+   }
+  
+   #nav1:hover, #nav2:hover, #nav3:hover, #nav4:hover, #loginBtn:hover {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    /* color: white !important;
+    background-color: #51a39a; */
+  }
+
+  .btn-flat {
+    text-transform: none;
+  }
+
+
+
+
+
