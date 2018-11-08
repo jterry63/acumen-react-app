@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { Icon, Button, SimpleSelect } from 'mx-react-components';
 import './Admin.css';
 import { DonutChart } from "mx-react-components";
+import {CollapsibleComponent, CollapsibleHead, CollapsibleContent} from 'react-collapsible-component'
+import { right } from "glamor";
+
+
+
 const { Styles } = require('mx-react-components');
 
 
@@ -67,8 +72,63 @@ class Admin extends Component {
 
 <div className="sidebar"> 
 <br></br>
- <div style={{backgroundColor: '#9ae2e6', borderRadius: 6, height: 6, marginLeft: 15, marginRight: 15, width: 6, boxShadow: 'rgb(161,237,214) 0px 0px 10px'}} />
+
+ <div>
+           
+            <CollapsibleComponent>
+
+                <CollapsibleHead isExpanded={true} className="additionalClassForHead"> 
+                  <Icon
+                    size={25}
+                    style={{ fill: 'white', marginRight: 10, marginBottom: 6 }}
+                    type='net-worth'
+                  />
+                Results</CollapsibleHead>
+
+                <CollapsibleContent isExpanded={true} className="additionalClassForContent">
+                <ul className="dropDownList">
+                  <li className="dropDownItem"> <div className="bullet"/>
+Overview</li>
+                  <li className="dropDownItem">Question Analysis</li>
+                 
+                </ul>
+                </CollapsibleContent>
  
+                <CollapsibleHead className="additionalClassForHead">
+                <Icon
+                    size={20}
+                    style={{ fill: 'white', marginRight: 10, marginBottom: 3 }}
+                    type='user'
+                  />
+                Users</CollapsibleHead>
+            
+                <CollapsibleContent className="additionalClassForContent">
+                <ul className="dropDownList">
+                  <li className="dropDownItem">All Users</li>
+                  <li className="dropDownItem">Teams</li>
+                  <li className="dropDownItem">Management Analysis</li>
+                </ul>
+                </CollapsibleContent>
+ 
+                <CollapsibleHead className="additionalClassForHead">
+                <Icon
+                    size={20}
+                    style={{ fill: 'white', marginRight: 10, marginBottom: 3 }}
+                    type='bill-pay'
+                  />
+                Surveys</CollapsibleHead>
+                
+                <CollapsibleContent className="additionalClassForContent">
+                <ul className="dropDownList">
+                  <li className="dropDownItem">Live Surveys</li>
+                  <li className="dropDownItem">Concluded Surveys</li>
+                  <li className="dropDownItem">Create</li>
+                  <li className="dropDownItem">Deploy</li>
+            
+                </ul>
+                </CollapsibleContent>
+            </CollapsibleComponent>
+        </div>
 
 </div>
 

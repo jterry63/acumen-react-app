@@ -688,6 +688,14 @@ raw-body@~2.2.0:
     iconv-lite "0.4.15"
     unpipe "1.0.0"
 
+react-collapsible-component@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-collapsible-component/-/react-collapsible-component-1.1.1.tgz#835dbb0409ecb4ab3a076720601eab1f13b87ed9"
+  dependencies:
+    prop-types "^15.6.2"
+    react "^16.5.2"
+    react-dom "^16.5.2"
+
 react-dom@^16.5.2:
   version "16.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.1.tgz#5476e08694ae504ae385a28b62ecc4fe3a29add9"
