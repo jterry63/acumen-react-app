@@ -132,9 +132,12 @@ Overview</li>
 
 </div>
 
-<div style={{backgroundColor: 'whitesmoke', height: '100vh'}}>
+<div style={{backgroundColor: 'whitesmoke', height: '100vh', marginLeft: '250px'}}>
 
-<div style={{marginLeft: "300px"}}>
+<br></br>
+
+<div className="card" style={{margin: '20px'}}>
+<div>
 <DonutChart
           activeOffset={5}
           animateOnHover={true}
@@ -168,6 +171,7 @@ Overview</li>
           defaultLabelValue="300"
           id="donut-1"
         />
+</div>
 </div>
 
 
