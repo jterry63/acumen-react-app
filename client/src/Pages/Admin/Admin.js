@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Icon, Button, SimpleSelect } from 'mx-react-components';
+import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart } from 'mx-react-components';
 import './Admin.css';
-import { DonutChart } from "mx-react-components";
+
 import {CollapsibleComponent, CollapsibleHead, CollapsibleContent} from 'react-collapsible-component'
 import { right } from "glamor";
+import { truncateSync } from "fs";
 
 
 
@@ -17,12 +18,41 @@ class Admin extends Component {
 
     state = {
         selectedItem: null,
-        showMenu: false
+        showMenu: false, 
+        surveys: [],
+        q1t1: 2,
+        questionOneTotal: 10
+        
       };
+
+      componentDidMount() {
+        let self = this;
+        fetch('/surveys')
+          .then(res => res.json())
+          .then(surveys => self.setState({ surveys: surveys }))
+        // fetch('surveys/q1t1')
+        //   .then(res => res.json())
+        //   .then(q1t1 => self.setState({ q1t1: q1t1 }))
+          
+      }
+
+      componentDidUpdate() {
+        if (this.state.questionOneTotal===10) {
+        this.setState({ questionOneTotal: parseInt(this.state.surveys[17].question1_value) + parseInt(this.state.surveys[17].question1_value) })
+        
+        }
+      }
+
+    
+
+   
     
       _handleItemClick = (e, item) => {
         this._toggleMenu();
         this.setState({ selectedItem: item.text });
+        
+        // console.log(parseInt(this.state.surveys[17].question1_value))
+        // this.setState({ test: parseInt(this.state.surveys[17].question1_value)})
       };
     
       _toggleMenu = () => {
@@ -30,11 +60,36 @@ class Admin extends Component {
       };
     
   render() {
-    
+ 
+   
     
     return (
       <div>
 
+          <tbody className="hideMe">
+            {this.state.surveys.map(survey =>
+              <tr key={survey.id}>
+                <td>{survey.question1_value}</td>
+                <td>{survey.question1_comment}</td>
+                <td>{survey.question2_value}</td>
+                <td>{survey.question2_comment}</td>
+                <td>{survey.question3_value}</td>
+                <td>{survey.question3_comment}</td>
+                <td>{survey.question4_value}</td>
+                <td>{survey.question4_comment}</td>
+                <td>{survey.question5_value}</td>
+                <td>{survey.question5_comment}</td>
+                <td>{survey.question6_value}</td>
+                <td>{survey.question6_comment}</td>
+                <td>{survey.question7_value}</td>
+                <td>{survey.question7_comment}</td>
+                <td>{survey.question8_comment}</td>
+               
+               
+              </tr>
+              
+            )}
+        </tbody>
 
 
        <nav>
@@ -136,9 +191,27 @@ Overview</li>
 
 <br></br>
 
-<div className="card" style={{margin: '20px'}}>
-<div>
-<DonutChart
+ <div className='month center'>
+  <ButtonGroup
+            buttons={[
+              { 'aria-label': 'Back', icon: 'caret-left' },
+              { 'aria-label': 'March 2015 to February 2016', text: 'November' },
+              { 'aria-label': 'Forward', icon: 'caret-right' }
+            ]}
+            type='primaryOutline'
+          />
+
+          </div>
+
+<div className="card" style={{margin: '20px', height: '300px'}}>
+
+
+ 
+
+<div className="donutChart">
+<br></br>
+<DonutChart 
+        
           activeOffset={5}
           animateOnHover={true}
           animationDuration={750}
@@ -148,7 +221,7 @@ Overview</li>
           data={[
             {
               name: "1/5",
-              value: 10
+              value: this.state.questionOneTotal
             },
             {
               name: "2/5",
@@ -177,14 +250,15 @@ Overview</li>
 
 </div>
 
-
-
     
     </div>
+   
     
     
   );
-  }
+  
+  } 
 }
+
 
 export default Admin;

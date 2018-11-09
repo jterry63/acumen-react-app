@@ -58,3 +58,13 @@
     margin-top: 8px;
  
 }
+
+.mx-donutchart {
+    margin: auto;
+    width: 50%
+ 
+}
+
+.hideMe {
+    display: none;
+}
