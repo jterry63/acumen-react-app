@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart } from 'mx-react-components';
+import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal } from 'mx-react-components';
 import './Admin.css';
 
 import {CollapsibleComponent, CollapsibleHead, CollapsibleContent} from 'react-collapsible-component'
 import { right } from "glamor";
 import { truncateSync } from "fs";
+const axios = require('axios');
 
 
 
@@ -17,56 +18,118 @@ const { Styles } = require('mx-react-components');
 class Admin extends Component {
 
     state = {
+        demoDrawerOpen: false,
+        demoDrawerOpen2: false,
         selectedItem: null,
         showMenu: false, 
         surveys: [],
-        q1t1: 2,
-        questionOneTotal: 10
+        questionOneTotal: 1,
+        questionTwoTotal: 1,
+        questionThreeTotal: 6,
+        questionFourTotal: 6,
+        questionFiveTotal: 5
+        
         
       };
 
-      componentDidMount() {
-        let self = this;
-        fetch('/surveys')
-          .then(res => res.json())
-          .then(surveys => self.setState({ surveys: surveys }))
-        // fetch('surveys/q1t1')
-        //   .then(res => res.json())
-        //   .then(q1t1 => self.setState({ q1t1: q1t1 }))
-          
+      componentWillMount() {
+
+      axios.get(`/surveys`)  
+      .then(res => {
+        const surveys = res.data;
+        this.setState({ surveys: surveys})
+      });
+   
+      axios.get(`/surveys/q1t1`)
+      .then(res => {
+        const q1t1 = res.data;
+        this.setState({ questionOneTotal: q1t1[0].total });
+      })
+
+      axios.get(`/surveys/q1t2`)
+      .then(res => {
+        const q1t2 = res.data;
+        this.setState({ questionTwoTotal: q1t2[0].total });
+      })
+
+      axios.get(`/surveys/q1t3`)
+      .then(res => {
+        const q1t3 = res.data;
+        this.setState({ questionThreeTotal: q1t3[0].total });
+      })
+
+      axios.get(`/surveys/q1t4`)
+      .then(res => {
+        const q1t4 = res.data;
+        this.setState({ questionFourTotal: q1t4[0].total });
+      })
+
+      axios.get(`/surveys/q1t5`)
+      .then(res => {
+        const q1t5 = res.data;
+        this.setState({ questionFiveTotal: q1t5[0].total });
+      })
+
       }
-
-      componentDidUpdate() {
-        if (this.state.questionOneTotal===10) {
-        this.setState({ questionOneTotal: parseInt(this.state.surveys[17].question1_value) + parseInt(this.state.surveys[17].question1_value) })
-        
-        }
-      }
-
-    
-
    
     
       _handleItemClick = (e, item) => {
         this._toggleMenu();
         this.setState({ selectedItem: item.text });
-        
-        // console.log(parseInt(this.state.surveys[17].question1_value))
-        // this.setState({ test: parseInt(this.state.surveys[17].question1_value)})
       };
     
       _toggleMenu = () => {
         this.setState(state => ({ showMenu: !state.showMenu }));
       };
-    
-  render() {
- 
-   
-    
-    return (
-      <div>
 
-          <tbody className="hideMe">
+      _handleDemoButtonClick = () => {
+        this.setState({
+          demoDrawerOpen: true
+        });
+      };
+    
+      _handleDrawerClose = () => {
+        this.setState({
+          demoDrawerOpen: false
+        });
+      };
+  
+    
+      _handleSimpleSelectClick = (event, item) => {
+        this.setState({
+          clickedMenu: item
+        });
+      };
+      _renderDrawer = () => {
+        const styles = this.styles();
+    
+        return (
+          <Drawer
+            aria-describedby='description'
+            breakPoints={{ large: 1200, medium: 1100 }}
+            contentStyle={styles.content}
+            headerMenu={({ close }) => (
+              <HeaderMenu
+                buttonIcon='gear'
+                buttonText='Settings'
+                items={[
+                  { icon: 'auto', onClick: this._handleSimpleSelectClick, text: 'Auto' },
+                  { icon: 'kids', onClick: this._handleSimpleSelectClick, text: 'Kids' },
+                  { icon: 'close', onClick: close, text: 'Close Drawer' }
+                ]}
+              />
+            )}
+            onClose={this._handleDrawerClose}
+            portalTo='#app'
+            title='Comments'
+           
+          >
+            {({ close }) => {
+              return (
+                <div>
+                  {this.state.clickedMenu && <code>You clicked: {this.state.clickedMenu.text}</code>}
+                  <p id='description'>
+                  <tbody>
             {this.state.surveys.map(survey =>
               <tr key={survey.id}>
                 <td>{survey.question1_value}</td>
@@ -90,7 +153,28 @@ class Admin extends Component {
               
             )}
         </tbody>
-
+                  </p>
+                  <p>
+                    <Button onClick={close}>Close Drawer</Button>
+                  </p>
+                  <p>
+                    
+                  </p>
+                 
+                </div>
+              );
+            }}
+          </Drawer>
+        );
+      };
+     
+    
+  render() {
+    const styles = this.styles();
+   
+    
+    return (
+      <div>
 
        <nav>
         <div className="nav-wrapper" style={{boxShadow: '0 2px 8px 0 rgba(0,0,0,.08)'}}>
@@ -129,6 +213,7 @@ class Admin extends Component {
 <br></br>
 
  <div>
+
            
             <CollapsibleComponent>
 
@@ -203,52 +288,55 @@ Overview</li>
 
           </div>
 
-<div className="card" style={{margin: '20px', height: '300px'}}>
+<div className="card" id="donutChart">
 
 
  
 
 <div className="donutChart">
 <br></br>
+
 <DonutChart 
         
           activeOffset={5}
           animateOnHover={true}
           animationDuration={750}
           animationTypeOnLoad="roll"
-          arcWidth={15}
-          chartTotal={100}
+          arcWidth={30}
+          height={250}
+          width={250}
+          onClick={this._handleDemoButtonClick}
+          chartTotal={this.state.questionOneTotal + this.state.questionTwoTotal + this.state.questionThreeTotal + this.state.questionFourTotal + this.state.questionFiveTotal}
+          
           data={[
             {
-              name: "1/5",
-              value: this.state.questionOneTotal
+              name: "Unfavorable",
+              value: this.state.questionOneTotal + this.state.questionTwoTotal
+            
             },
             {
-              name: "2/5",
-              value: 30
+              name: "Neutral",
+              value: this.state.questionThreeTotal
             },
             {
-              name: "3/5",
-              value: 40
-            },
-            {
-              name: "4/5",
-              value: 10
-            },
-            {
-              name: "5/5",
-              value: 10
+              name: "Favorable",
+              value: this.state.questionFourTotal + this.state.questionFiveTotal
             }
+         
           ]}
-          defaultLabelText="Total Users"
-          defaultLabelValue="300"
+          colors={["#959ca6", "#359BCF", "#58ac7b"]}
+          defaultLabelText="Favorable"
+          defaultLabelValue={parseInt(((this.state.questionThreeTotal + this.state.questionTwoTotal + this.state.questionOneTotal)/(this.state.questionFiveTotal + this.state.questionFourTotal))*100) + "%"}
           id="donut-1"
         />
 </div>
+
+{this.state.demoDrawerOpen && this._renderDrawer()}
+
 </div>
 
-
 </div>
+
 
     
     </div>
@@ -258,6 +346,36 @@ Overview</li>
   );
   
   } 
+  styles = () => {
+    return {
+      content: {
+        padding: 60,
+        fontFamily: 'ProximaNovaRegular, Helvetica, Arial, sans-serif',
+        color: '#2E323F'
+      },
+      unorderdLists: {
+        marginTop: 0,
+        marginBottom: 8
+      },
+      listItem: {
+        marginTop: 0,
+        marginBottom: 0
+      },
+      navLabel: {
+        padding: '7px 14px',
+        position: 'relative',
+        bottom: 5,
+        '@media (max-width: 750px)': {
+          display: 'none',
+          padding: 0
+        }
+      },
+      h5ListItem: {
+        marginTop: 0,
+        marginBottom: 0
+      }
+    };
+  };
 }
 
 
