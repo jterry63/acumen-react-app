@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal } from 'mx-react-components';
+import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu } from 'mx-react-components';
 import './Admin.css';
 
 import {CollapsibleComponent, CollapsibleHead, CollapsibleContent} from 'react-collapsible-component'
@@ -21,6 +21,7 @@ class Admin extends Component {
         demoDrawerOpen: false,
         demoDrawerOpen2: false,
         selectedItem: null,
+        showItems: false,
         showMenu: false, 
         surveys: [],
         questionOneTotal: 1,
@@ -100,6 +101,14 @@ class Admin extends Component {
           clickedMenu: item
         });
       };
+
+      _handleClick = () => {
+        this.setState({
+          showItems: !this.state.showItems
+        });
+      };
+
+
       _renderDrawer = () => {
         const styles = this.styles();
     
@@ -179,28 +188,22 @@ class Admin extends Component {
        <nav>
         <div className="nav-wrapper" style={{boxShadow: '0 2px 8px 0 rgba(0,0,0,.08)'}}>
           <a href="#" className="brand-logo"><img src="images/acumen3.png" /></a>
-          <div className="right" style={{marginRight: "50px", marginTop: '5px'}}>
-          <Button
-    icon='gear'
-   
-    onClick={this._toggleMenu}
-    type='primaryOutline'
-    styles={{ base: { fill: '#959CA6' } }}
-    // styles={{ menu: { backgroundColor: 'red' } }}
-  >
-  
-  </Button>
-  {this.state.showMenu ? (
-    <SimpleSelect
-      aria-label='Select a category'
-      items={[
-        { text: 'Settings', onClick: this._handleItemClick },
-        { text: 'Logout', onClick: this._handleItemClick }
-      ]}
-      onScrimClick={this._toggleMenu}
-    //   styles={{ menu: { backgroundColor: 'red' } }}
-    />
-  ) : null}
+          <div className="right" style={{marginRight: "90px", marginTop: '12px'}}>
+       
+          <Menu
+          isOpen={this.state.showItems}
+          items={[
+            {
+              icon: 'no',
+              label: 'Logout',
+              onClick: () => {}
+            }
+         
+          
+          ]}
+          onClick={this._handleClick}
+        />
+
   </div>
 
             

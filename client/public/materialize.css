@@ -2368,7 +2368,7 @@ svg:not(:root) {
  * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
-button,
+
 input,
 optgroup,
 select,
@@ -2387,7 +2387,7 @@ textarea {
  * Show the overflow in IE.
  * 1. Show the overflow in Edge.
  */
-button,
+
 input {
   /* 1 */
   overflow: visible;
@@ -2397,7 +2397,7 @@ input {
  * Remove the inheritance of text transform in Edge, Firefox, and IE.
  * 1. Remove the inheritance of text transform in Firefox.
  */
-button,
+
 select {
   /* 1 */
   text-transform: none;
@@ -2408,34 +2408,18 @@ select {
  *    controls in Android 4.
  * 2. Correct the inability to style clickable types in iOS and Safari.
  */
-button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-  /* 2 */
-}
+
+
 
 /**
  * Remove the inner border and padding in Firefox.
  */
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
+
 
 /**
  * Restore the focus styles unset by the previous rule.
  */
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
+
 
 /**
  * Correct the padding in Firefox.
@@ -2499,11 +2483,7 @@ textarea {
 
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
+
 
 /**
  * 1. Correct the odd appearance in Chrome and Safari.
@@ -2519,21 +2499,13 @@ textarea {
 /**
  * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
  */
-[type="search"]::-webkit-search-cancel-button,
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
+
 
 /**
  * 1. Correct the inability to style clickable types in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  /* 1 */
-  font: inherit;
-  /* 2 */
-}
+
 
 /* Interactive
    ========================================================================== */
@@ -2588,7 +2560,7 @@ html {
           box-sizing: inherit;
 }
 
-button,
+
 input,
 optgroup,
 select,
@@ -2632,7 +2604,7 @@ a {
 }
 
 /* 2dp elevation modified*/
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .dropdown-content, .collapsible, .sidenav {
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-small, .btn-floating, .collapsible, .sidenav {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
@@ -5337,9 +5309,7 @@ small {
   line-height: 40px;
 }
 
-button.btn-floating {
-  border: none;
-}
+
 
 .fixed-action-btn {
   position: fixed;
@@ -5542,85 +5512,14 @@ button.btn-floating {
   display: block;
 }
 
-.dropdown-content {
-  background-color: #fff;
-  margin: 0;
-  display: none;
-  min-width: 100px;
-  overflow-y: auto;
-  opacity: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 9999;
-  -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
-}
 
-.dropdown-content:focus {
-  outline: 0;
-}
 
-.dropdown-content li {
-  clear: both;
-  color: rgba(0, 0, 0, 0.87);
-  cursor: pointer;
-  min-height: 50px;
-  line-height: 1.5rem;
-  width: 100%;
-  text-align: left;
-}
 
-.dropdown-content li:hover, .dropdown-content li.active {
-  background-color: #eee;
-}
 
-.dropdown-content li:focus {
-  outline: none;
-}
 
-.dropdown-content li.divider {
-  min-height: 0;
-  height: 1px;
-}
 
-.dropdown-content li > a, .dropdown-content li > span {
-  font-size: 16px;
-  color: #26a69a;
-  display: block;
-  line-height: 22px;
-  padding: 14px 16px;
-}
 
-.dropdown-content li > span > label {
-  top: 1px;
-  left: 0;
-  height: 18px;
-}
 
-.dropdown-content li > a > i {
-  height: inherit;
-  line-height: inherit;
-  float: left;
-  margin: 0 24px 0 0;
-  width: 24px;
-}
-
-body.keyboard-focused .dropdown-content li:focus {
-  background-color: #dadada;
-}
-
-.input-field.col .dropdown-content [type="checkbox"] + label {
-  top: 1px;
-  left: 0;
-  height: 18px;
-  -webkit-transform: none;
-          transform: none;
-}
-
-.dropdown-trigger {
-  cursor: pointer;
-}
 
 /*!
  * Waves v0.6.0
@@ -5694,13 +5593,6 @@ body.keyboard-focused .dropdown-content li:focus {
   background-color: rgba(0, 150, 136, 0.7);
 }
 
-.waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
-  border: 0;
-  font-style: normal;
-  font-size: inherit;
-  text-transform: inherit;
-  background: none;
-}
 
 .waves-effect img {
   position: relative;
@@ -5723,12 +5615,7 @@ body.keyboard-focused .dropdown-content li:focus {
   vertical-align: bottom;
 }
 
-.waves-input-wrapper .waves-button-input {
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
+
 
 .waves-circle {
   text-align: center;
@@ -6091,10 +5978,7 @@ select:focus {
   outline: 1px solid #c9f3ef;
 }
 
-button:focus {
-  outline: none;
-  background-color: #2ab7a9;
-}
+
 
 label {
   font-size: 0.8rem;
@@ -6319,7 +6203,7 @@ input.valid[type=number]:not(.browser-default):focus,
 input.valid[type=search]:not(.browser-default),
 input.valid[type=search]:not(.browser-default):focus,
 textarea.materialize-textarea.valid,
-textarea.materialize-textarea.valid:focus, .select-wrapper.valid > input.select-dropdown {
+textarea.materialize-textarea.valid:focus, .select-wrapper.valid > {
   border-bottom: 1px solid #4CAF50;
   -webkit-box-shadow: 0 1px 0 0 #4CAF50;
           box-shadow: 0 1px 0 0 #4CAF50;
@@ -6349,8 +6233,8 @@ input.invalid[type=number]:not(.browser-default):focus,
 input.invalid[type=search]:not(.browser-default),
 input.invalid[type=search]:not(.browser-default):focus,
 textarea.materialize-textarea.invalid,
-textarea.materialize-textarea.invalid:focus, .select-wrapper.invalid > input.select-dropdown,
-.select-wrapper.invalid > input.select-dropdown:focus {
+textarea.materialize-textarea.invalid:focus, .select-wrapper.invalid >,
+.select-wrapper.invalid >  {
   border-bottom: 1px solid #F44336;
   -webkit-box-shadow: 0 1px 0 0 #F44336;
           box-shadow: 0 1px 0 0 #F44336;
@@ -6513,7 +6397,7 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
 }
 
 .input-field.inline input,
-.input-field.inline .select-dropdown {
+.input-field.inline  {
   margin-bottom: 1rem;
 }
 
@@ -6716,12 +6600,7 @@ textarea.materialize-textarea {
 
 /* Radio Buttons
    ========================================================================== */
-[type="radio"]:not(:checked),
-[type="radio"]:checked {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
+
 
 [type="radio"]:not(:checked) + span,
 [type="radio"]:checked + span {
@@ -7168,7 +7047,7 @@ select {
   pointer-events: none;
 }
 
-.select-wrapper input.select-dropdown {
+.select-wrapper  {
   position: relative;
   cursor: pointer;
   background-color: transparent;
@@ -7189,7 +7068,7 @@ select {
   z-index: 1;
 }
 
-.select-wrapper input.select-dropdown:focus {
+.select-wrapper  {
   border-bottom: 1px solid #26a69a;
 }
 
@@ -7221,7 +7100,7 @@ select:disabled {
   fill: rgba(0, 0, 0, 0.42);
 }
 
-.select-wrapper input.select-dropdown:disabled {
+.select-wrapper  {
   color: rgba(0, 0, 0, 0.42);
   cursor: default;
   -webkit-user-select: none;
@@ -7234,24 +7113,13 @@ select:disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.select-dropdown li.disabled,
-.select-dropdown li.disabled > span,
-.select-dropdown li.optgroup {
-  color: rgba(0, 0, 0, 0.3);
-  background-color: transparent;
-}
 
-body.keyboard-focused .select-dropdown.dropdown-content li:focus {
+
+body.keyboard-focused li:focus {
   background-color: rgba(0, 0, 0, 0.08);
 }
 
-.select-dropdown.dropdown-content li:hover {
-  background-color: rgba(0, 0, 0, 0.08);
-}
 
-.select-dropdown.dropdown-content li.selected {
-  background-color: rgba(0, 0, 0, 0.03);
-}
 
 .prefix ~ .select-wrapper {
   margin-left: 3rem;
@@ -7263,28 +7131,8 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
   margin-left: 3rem;
 }
 
-.select-dropdown li img {
-  height: 40px;
-  width: 40px;
-  margin: 5px 15px;
-  float: right;
-}
 
-.select-dropdown li.optgroup {
-  border-top: 1px solid #eee;
-}
 
-.select-dropdown li.optgroup.selected > span {
-  color: rgba(0, 0, 0, 0.7);
-}
-
-.select-dropdown li.optgroup > span {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-.select-dropdown li.optgroup ~ li.optgroup-option {
-  padding-left: 1rem;
-}
 
 /* File Input
    ========================================================================== */
@@ -7326,9 +7174,7 @@ body.keyboard-focused .select-dropdown.dropdown-content li:focus {
   filter: alpha(opacity=0);
 }
 
-.file-field input[type=file]::-webkit-file-upload-button {
-  display: none;
-}
+
 
 /* Range
    ========================================================================== */
@@ -8687,21 +8533,8 @@ input[type=range] + .thumb.active .value {
   pointer-events: none;
 }
 
-.datepicker-day-button {
-  background-color: transparent;
-  border: none;
-  line-height: 38px;
-  display: block;
-  width: 100%;
-  border-radius: 50%;
-  padding: 0 5px;
-  cursor: pointer;
-  color: inherit;
-}
 
-.datepicker-day-button:focus {
-  background-color: rgba(43, 161, 150, 0.25);
-}
+
 
 /* Footer */
 .datepicker-footer {
@@ -8753,9 +8586,7 @@ input[type=range] + .thumb.active .value {
   .datepicker-footer {
     width: 320px;
   }
-  .datepicker-day-button {
-    line-height: 44px;
-  }
+
 }
 
 /* Timepicker Containers */

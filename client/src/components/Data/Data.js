@@ -111,6 +111,8 @@ fetch("http://localhost:4007/surveys/new", {
 }).catch(function(err) {
   console.log(err)
 });
+alert("Thank you for submitting the survey!");
+window.location.href = "/";
 }
 
 
@@ -292,7 +294,7 @@ showQuestionEight = () => {
       // this.state.surveyData.push(this.state.commentTwo);
 
       this.showQuestionThree();
-      scroll.scrollTo(2100);
+      scroll.scrollMore(700);
 
       // console.log(this.state.surveyData)
   };
@@ -311,7 +313,7 @@ showQuestionEight = () => {
       // this.state.surveyData.push(this.state.commentThree);
 
       this.showQuestionFour();
-      scroll.scrollTo(2825);
+      scroll.scrollMore(700);
 
       // console.log(this.state.surveyData)
   };
@@ -331,7 +333,7 @@ showQuestionEight = () => {
 
 
       this.showQuestionFive();
-      scroll.scrollTo(3590);
+      scroll.scrollMore(700);
       // console.log(this.state.surveyData)
   };
 
@@ -350,7 +352,7 @@ showQuestionEight = () => {
 
 
       this.showQuestionSix();
-      scroll.scrollTo(4320);
+      scroll.scrollMore(700);
       // console.log(this.state.surveyData)
   };
 
@@ -369,7 +371,7 @@ showQuestionEight = () => {
 
 
       this.showQuestionSeven();
-      scroll.scrollTo(5045);
+      scroll.scrollMore(700);
       // console.log(this.state.surveyData)
   };
 
@@ -388,7 +390,7 @@ showQuestionEight = () => {
 
 
       this.showQuestionEight();
-      scroll.scrollTo(5785);
+      scroll.scrollMore(700);
       // console.log(this.state.surveyData)
   };
 

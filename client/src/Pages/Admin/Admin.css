@@ -79,3 +79,8 @@
     
     height: 300px;
 }
+
+.mx-menu {
+  line-height: 10px !important;
+ 
+}
