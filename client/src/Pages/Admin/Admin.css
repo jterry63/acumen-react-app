@@ -70,17 +70,57 @@
     display: none;
 }
 
+.centerCards {
+ margin: auto;
+ width: 100%;
+ margin-left: 8%;
+ 
+}
 
 #donutChart {
     margin-top: 20px;
-    margin-right: 20px;
-    margin-left: 20px;
+    
+    margin-left: 5%;
+    margin-top: 20px;
+    width: 300px;
+    height: 300px;
+    float: left;
+    
+}
+
+#commentCard {
     margin-top: 20px;
     
+    margin-left: 5%;
+    margin-top: 20px;
+    width: 300px;
     height: 300px;
+    float: left;
+    
 }
+
+
 
 .mx-menu {
   line-height: 10px !important;
  
+}
+
+.totalCommentsNumber {
+    font-size: 100px;
+    margin: -20px;
+    color: grey;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.totalCommentsNumber:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.totalComments {
+    color: grey;
+    cursor: pointer;
 }

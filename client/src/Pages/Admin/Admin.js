@@ -24,11 +24,15 @@ class Admin extends Component {
         showItems: false,
         showMenu: false, 
         surveys: [],
-        questionOneTotal: 1,
-        questionTwoTotal: 1,
-        questionThreeTotal: 6,
-        questionFourTotal: 6,
-        questionFiveTotal: 5
+        questionOneTotalOne: 1,
+        questionOneTotalTwo: 5,
+        questionOneTotalThree: 6,
+        questionOneTotalFour: 6,
+        questionOneTotalFive: 5, 
+        surveysDeployed: 50,
+        surveysCompleted: 45,
+        surveysIncomplete: 9,
+        surveysInProgress: 6
         
         
       };
@@ -44,31 +48,31 @@ class Admin extends Component {
       axios.get(`/surveys/q1t1`)
       .then(res => {
         const q1t1 = res.data;
-        this.setState({ questionOneTotal: q1t1[0].total });
+        this.setState({ questionOneTotalOne: q1t1[0].total });
       })
 
       axios.get(`/surveys/q1t2`)
       .then(res => {
         const q1t2 = res.data;
-        this.setState({ questionTwoTotal: q1t2[0].total });
+        this.setState({ questionOneTotalTwo: q1t2[0].total });
       })
 
       axios.get(`/surveys/q1t3`)
       .then(res => {
         const q1t3 = res.data;
-        this.setState({ questionThreeTotal: q1t3[0].total });
+        this.setState({ questionOneTotalThree: q1t3[0].total });
       })
 
       axios.get(`/surveys/q1t4`)
       .then(res => {
         const q1t4 = res.data;
-        this.setState({ questionFourTotal: q1t4[0].total });
+        this.setState({ questionOneTotalFour: q1t4[0].total });
       })
 
       axios.get(`/surveys/q1t5`)
       .then(res => {
         const q1t5 = res.data;
-        this.setState({ questionFiveTotal: q1t5[0].total });
+        this.setState({ questionOneTotalFive: q1t5[0].total });
       })
 
       }
@@ -291,12 +295,11 @@ Overview</li>
 
           </div>
 
-<div className="card" id="donutChart">
+<div className="centerCards center">
 
+<div className="card center" id="donutChart">
 
- 
-
-<div className="donutChart">
+<div className="donutChart center">
 <br></br>
 
 <DonutChart 
@@ -309,35 +312,102 @@ Overview</li>
           height={250}
           width={250}
           onClick={this._handleDemoButtonClick}
-          chartTotal={this.state.questionOneTotal + this.state.questionTwoTotal + this.state.questionThreeTotal + this.state.questionFourTotal + this.state.questionFiveTotal}
+          chartTotal={this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress}
           
           data={[
             {
-              name: "Unfavorable",
-              value: this.state.questionOneTotal + this.state.questionTwoTotal
+              name: "Incomplete",
+              value: this.state.surveysIncomplete
             
             },
             {
-              name: "Neutral",
-              value: this.state.questionThreeTotal
+              name: "In Progress",
+              value: this.state.surveysInProgress
             },
             {
-              name: "Favorable",
-              value: this.state.questionFourTotal + this.state.questionFiveTotal
+              name: "Complete",
+              value: this.state.surveysCompleted
             }
          
           ]}
           colors={["#959ca6", "#359BCF", "#58ac7b"]}
-          defaultLabelText="Favorable"
-          defaultLabelValue={parseInt(((this.state.questionThreeTotal + this.state.questionTwoTotal + this.state.questionOneTotal)/(this.state.questionFiveTotal + this.state.questionFourTotal))*100) + "%"}
+          defaultLabelText="Completed Surveys"
+          defaultLabelValue={parseInt(((this.state.surveysCompleted)/(this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress))*100) + "%"}
           id="donut-1"
         />
 </div>
+
+
 
 {this.state.demoDrawerOpen && this._renderDrawer()}
 
 </div>
 
+<div className="card center" id="donutChart">
+
+
+ 
+
+<div className="donutChart center">
+<br></br>
+
+<DonutChart 
+        
+          activeOffset={5}
+          animateOnHover={true}
+          animationDuration={750}
+          animationTypeOnLoad="roll"
+          arcWidth={30}
+          height={250}
+          width={250}
+          onClick={this._handleDemoButtonClick}
+          chartTotal={this.state.questionOneTotalOne + this.state.questionOneTotalTwo + this.state.questionOneTotalThree + this.state.questionOneTotalFour + this.state.questionOneTotalFive}
+          
+          data={[
+            {
+              name: "Unfavorable",
+              value: this.state.questionOneTotalOne + this.state.questionOneTotalTwo
+            
+            },
+            {
+              name: "Neutral",
+              value: this.state.questionOneTotalThree
+            },
+            {
+              name: "Favorable",
+              value: this.state.questionOneTotalFour + this.state.questionOneTotalFive
+            }
+         
+          ]}
+          colors={["#959ca6", "#359BCF", "#58ac7b"]}
+          defaultLabelText="Favorable Ratings"
+          defaultLabelValue={parseInt(((this.state.questionOneTotalFive + this.state.questionOneTotalFour)/(this.state.questionOneTotalFive + this.state.questionOneTotalFour + this.state.questionOneTotalThree + this.state.questionOneTotalTwo + this.state.questionOneTotalOne))*100) + "%"}
+          id="donut-1"
+        />
+</div>
+
+
+
+
+</div>
+
+<div className="card center" id="commentCard">
+
+
+ 
+
+<div className="center">
+<br></br>
+
+<p className="totalCommentsNumber" onClick={this._handleDemoButtonClick}>67 </p> <p className="totalComments">Total Comments</p>
+</div>
+
+
+
+
+</div>
+
+</div>
 </div>
 
 
