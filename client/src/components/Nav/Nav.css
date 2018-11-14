@@ -73,5 +73,15 @@
 
 
 
+  @media only screen and (max-width: 900px) {
+    .navbar-brand img {
+      height: 10px;
+      width: 74px;
+      margin-left: 50px;
+      margin-top: 20px;
+      z-index: 100;
+    }
+}
+
 
 

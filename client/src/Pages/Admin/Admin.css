@@ -73,7 +73,7 @@
 .centerCards {
  
  width: 100%;
-margin-left: 6.5%;
+margin-left: 2%;
  
 }
 
@@ -101,14 +101,18 @@ margin-left: 6.5%;
 
 #barChart {
    
-    margin-top: 20px;
+
     
     margin-left: 8%;
-    margin-top: 4px;
+  
     width: 82%;
     height: 350px;
     float: left;
     
+}
+
+.card-horizontal {
+    height: 100px;
 }
 
 
@@ -119,9 +123,9 @@ margin-left: 6.5%;
 }
 
 .totalCommentsNumber {
-    font-size: 100px;
+    font-size: 120px;
     margin: -20px;
-    color: grey;
+    color: #519aca;
     cursor: pointer;
     margin-top: 12px;
 }

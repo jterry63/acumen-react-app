@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu } from 'mx-react-components';
+import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu, Tooltip } from 'mx-react-components';
 import moment from "moment";
 import { BarChart, BarTimeXAxis } from "mx-react-components";
 import d3 from "d3";
@@ -190,47 +190,17 @@ class Admin extends Component {
     const styles = this.styles();
 
      //data gathering for Bar Chart
-     const chartData = [];
-     for (let i = 0; i < 12; i++) {
-       const date = moment().add(i, "M");
  
-       chartData.push({
-         label: date.unix(),
-         value: Math.round(Math.random() * (10000 - -10000) + -10000)
-       });
-     }
+     
+   
  
-     chartData[4].value = 0;
+    
+     
+      
+       
  
-     const margins = {
-       top: 50,
-       right: 20,
-       bottom: 40,
-       left: 20
-     };
-     const width = 500 - margins.right - margins.left;
-     const height = 300 - margins.top - margins.bottom;
- 
-     const threshold = 200;
- 
-     const ticks = chartData.map(d => {
-       return d.label;
-     });
-     const xAxisScale = d3.scale
-       .ordinal()
-       .domain(ticks)
-       .rangeRoundBands([0, width], 0.2);
- 
-     const xAxis = (
-       <BarTimeXAxis
-         tickValues={ticks}
-         timeAxisFormat="MMM"
-         transform={`translate(${margins.left},${height +
-           margins.top +
-           margins.bottom / 2})`}
-         xScaleFunction={xAxisScale}
-       />
-     );
+   
+    
  
      //end of data gathering for bar chart
    
@@ -336,7 +306,7 @@ Overview</li>
   <ButtonGroup
             buttons={[
               { 'aria-label': 'Back', icon: 'caret-left' },
-              { 'aria-label': 'March 2015 to February 2016', text: 'November' },
+              { 'aria-label': 'March 2015 to February 2016', text: 'Quarter 2' },
               { 'aria-label': 'Forward', icon: 'caret-right' }
             ]}
             type='primaryOutline'
@@ -348,46 +318,54 @@ Overview</li>
 
 <div className="card center" id="donutChart">
 
-<div className="donutChart center">
 
-<br></br><br></br>
-<hr style={{borderTop: "1px solid lightgrey"}}></hr>
-<br></br>
-<DonutChart 
+    <div className="card-horizontal">
+       
+       <div className="card-stacked">
+         <div className="card-content">
+           <p style={{textAlign: "left", color: "#474747"}}>Completed Surveys 
+           <Tooltip 
+            placement={"bottom"}>An indication of of complete, incomplete, and in progress status of all surveys within the given quarter</Tooltip>
+            </p>
+         </div>
+         <div className="card-action">
         
-          activeOffset={5}
-          animateOnHover={true}
-          animationDuration={750}
-          animationTypeOnLoad="roll"
-          arcWidth={20}
-          height={220}
-          width={220}
-          onClick={this._handleDemoButtonClick}
-          chartTotal={this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress}
+         <DonutChart 
+        
+        activeOffset={5}
+        animateOnHover={true}
+        animationDuration={750}
+        animationTypeOnLoad="roll"
+        arcWidth={20}
+        height={220}
+        width={220}
+        onClick={this._handleDemoButtonClick}
+        chartTotal={this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress}
+        
+        data={[
+          {
+            name: "Incomplete",
+            value: this.state.surveysIncomplete
           
-          data={[
-            {
-              name: "Incomplete",
-              value: this.state.surveysIncomplete
-            
-            },
-            {
-              name: "In Progress",
-              value: this.state.surveysInProgress
-            },
-            {
-              name: "Complete",
-              value: this.state.surveysCompleted
-            }
-         
-          ]}
-          colors={["#959ca6", "#359BCF", "#58ac7b"]}
-          defaultLabelText="Completed Surveys"
-          defaultLabelValue={parseInt(((this.state.surveysCompleted)/(this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress))*100) + "%"}
-          id="donut-1"
-        />
-</div>
-
+          },
+          {
+            name: "In Progress",
+            value: this.state.surveysInProgress
+          },
+          {
+            name: "Complete",
+            value: this.state.surveysCompleted
+          }
+       
+        ]}
+        colors={["#959ca6", "#359BCF", "#58ac7b"]}
+        defaultLabelText="Completed"
+        defaultLabelValue={parseInt(((this.state.surveysCompleted)/(this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress))*100) + "%"}
+        id="donut-1"
+      />
+         </div>
+       </div>
+     </div>
 
 
 {this.state.demoDrawerOpen && this._renderDrawer()}
@@ -397,46 +375,54 @@ Overview</li>
 <div className="card center" id="donutChart">
 
 
- 
-
-<div className="donutChart center">
-<br></br><br></br>
-<hr style={{borderTop: "1px solid lightgrey"}}></hr>
-<br></br>
-<DonutChart 
+    <div className="card-horizontal">
+       
+       <div className="card-stacked">
+         <div className="card-content">
+           <p style={{textAlign: "left", color: "#474747"}}>Survey Ratings
+           <Tooltip 
+            placement={"bottom"}>These ratings are pulled from the employee engagement question that asks "How happy are you working Example Inc?"<br></br> "Favorable" = 4-5<br></br> "Neutral" = 3<br></br> "Unfavorable" = 1-2 </Tooltip>
+           </p>
+         </div>
+         <div className="card-action">
+         <DonutChart 
         
-          activeOffset={5}
-          animateOnHover={true}
-          animationDuration={750}
-          animationTypeOnLoad="roll"
-          arcWidth={20}
-          height={220}
-          width={220}
-          onClick={this._handleDemoButtonClick}
-          chartTotal={this.state.questionOneTotalOne + this.state.questionOneTotalTwo + this.state.questionOneTotalThree + this.state.questionOneTotalFour + this.state.questionOneTotalFive}
+        activeOffset={5}
+        animateOnHover={true}
+        animationDuration={750}
+        animationTypeOnLoad="roll"
+        arcWidth={20}
+        height={220}
+        width={220}
+        onClick={this._handleDemoButtonClick}
+        chartTotal={this.state.questionOneTotalOne + this.state.questionOneTotalTwo + this.state.questionOneTotalThree + this.state.questionOneTotalFour + this.state.questionOneTotalFive}
+        
+        data={[
+          {
+            name: "Unfavorable",
+            value: this.state.questionOneTotalOne + this.state.questionOneTotalTwo
           
-          data={[
-            {
-              name: "Unfavorable",
-              value: this.state.questionOneTotalOne + this.state.questionOneTotalTwo
-            
-            },
-            {
-              name: "Neutral",
-              value: this.state.questionOneTotalThree
-            },
-            {
-              name: "Favorable",
-              value: this.state.questionOneTotalFour + this.state.questionOneTotalFive
-            }
-         
-          ]}
-          colors={["#959ca6", "#359BCF", "#58ac7b"]}
-          defaultLabelText="Favorable Ratings"
-          defaultLabelValue={parseInt(((this.state.questionOneTotalFive + this.state.questionOneTotalFour)/(this.state.questionOneTotalFive + this.state.questionOneTotalFour + this.state.questionOneTotalThree + this.state.questionOneTotalTwo + this.state.questionOneTotalOne))*100) + "%"}
-          id="donut-1"
-        />
-</div>
+          },
+          {
+            name: "Neutral",
+            value: this.state.questionOneTotalThree
+          },
+          {
+            name: "Favorable",
+            value: this.state.questionOneTotalFour + this.state.questionOneTotalFive
+          }
+       
+        ]}
+        colors={["#959ca6", "#359BCF", "#58ac7b"]}
+        defaultLabelText="Favorable"
+        defaultLabelValue={parseInt(((this.state.questionOneTotalFive + this.state.questionOneTotalFour)/(this.state.questionOneTotalFive + this.state.questionOneTotalFour + this.state.questionOneTotalThree + this.state.questionOneTotalTwo + this.state.questionOneTotalOne))*100) + "%"}
+        id="donut-1"
+      />
+         </div>
+       </div>
+     </div>
+
+
 
 
 
@@ -444,46 +430,106 @@ Overview</li>
 </div>
 
 <div className="card center" id="commentCard">
-<br></br><br></br>
-<hr style={{borderTop: "1px solid lightgrey"}}></hr>
+
+    <div className="card-horizontal">
+       
+       <div className="card-stacked">
+         <div className="card-content">
+           <p style={{textAlign: "left", color: "#474747"}}>Total Comments
+           <Tooltip 
+            placement={"bottom"}>All comments collected from every question within a survey given during the indicated quarter</Tooltip>
+           </p>
+         </div>
+         <div className="card-action">
+         <div className="center">
+
+<p className="totalCommentsNumber" onClick={this._handleDemoButtonClick}>68 </p>
+</div>
+         </div>
+       </div>
+     </div>
+
 
 
  
 
-<div className="center">
-<br></br>
 
-<p className="totalCommentsNumber" onClick={this._handleDemoButtonClick}>67 </p> <p className="totalComments">Total Comments</p>
-</div>
 
 
 
 </div>
 
 </div>
-<div className="card center" id="barChart">
+{/* <div className="card center" id="barChart">
 
 
- 
+     <div className="card-horizontal">
+       
+        <div className="card-stacked">
+          <div className="card-content">
+            <p style={{textAlign: "left", color: "#474747"}}>Question Analysis  
+            <Tooltip 
+            placement={"bottom"}>Indicates the average rating on each question from the surveys within the given quarter</Tooltip>
+            </p>
+           
+          </div>
+          <div className="card-action">
+       
+          <BarChart
+          width={900}
+          height={240}
+  
 
-<div className="donutChart center">
+    data={[
+      {
+        label: '1',
+        color: '#519aca',
+        value: 5,
+       
+      },
+      {
+        label: '2',
+        color: '#519aca',
+        value: 3
+      },
+      {
+        label: '3',
+        color: '#519aca',
+        value: 4
+      },
+      {
+        label: '4',
+        color: '#519aca',
+        value: 3
+      },
+      {
+        label: '5',
+        color: '#519aca',
+        value: 5
+      },
+      {
+        label: '6',
+        color: '#519aca',
+        value: 3
+      },
+      {
+        label: '7',
+        color: '#519aca',
+        value: 2
+      },
+    ]}
+   
+  
+  />
+          
+    
+        
+          </div>
+        </div>
+      </div> */}
 
 
-
- <BarChart
-          data={chartData}
-          margin={margins}
-          minBarHeight={1}
-          threshold={threshold}
-          xAxis={xAxis}
-        />
-      
-</div>
-
-
-
-
-</div>
+{/* </div> */}
 
 
 </div>
