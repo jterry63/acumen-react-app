@@ -460,7 +460,7 @@ Overview</li>
 </div>
 
 </div>
-{/* <div className="card center" id="barChart">
+<div className="card center" id="barChart">
 
 
      <div className="card-horizontal">
@@ -526,10 +526,10 @@ Overview</li>
         
           </div>
         </div>
-      </div> */}
+      </div>
 
 
-{/* </div> */}
+</div>
 
 
 </div>
