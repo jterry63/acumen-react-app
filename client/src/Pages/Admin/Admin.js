@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu } from 'mx-react-components';
+import moment from "moment";
+import { BarChart, BarTimeXAxis } from "mx-react-components";
+import d3 from "d3";
 import './Admin.css';
 
 import {CollapsibleComponent, CollapsibleHead, CollapsibleContent} from 'react-collapsible-component'
+
 import { right } from "glamor";
 import { truncateSync } from "fs";
 const axios = require('axios');
@@ -184,6 +188,51 @@ class Admin extends Component {
     
   render() {
     const styles = this.styles();
+
+     //data gathering for Bar Chart
+     const chartData = [];
+     for (let i = 0; i < 12; i++) {
+       const date = moment().add(i, "M");
+ 
+       chartData.push({
+         label: date.unix(),
+         value: Math.round(Math.random() * (10000 - -10000) + -10000)
+       });
+     }
+ 
+     chartData[4].value = 0;
+ 
+     const margins = {
+       top: 50,
+       right: 20,
+       bottom: 40,
+       left: 20
+     };
+     const width = 500 - margins.right - margins.left;
+     const height = 300 - margins.top - margins.bottom;
+ 
+     const threshold = 200;
+ 
+     const ticks = chartData.map(d => {
+       return d.label;
+     });
+     const xAxisScale = d3.scale
+       .ordinal()
+       .domain(ticks)
+       .rangeRoundBands([0, width], 0.2);
+ 
+     const xAxis = (
+       <BarTimeXAxis
+         tickValues={ticks}
+         timeAxisFormat="MMM"
+         transform={`translate(${margins.left},${height +
+           margins.top +
+           margins.bottom / 2})`}
+         xScaleFunction={xAxisScale}
+       />
+     );
+ 
+     //end of data gathering for bar chart
    
     
     return (
@@ -300,17 +349,19 @@ Overview</li>
 <div className="card center" id="donutChart">
 
 <div className="donutChart center">
-<br></br>
 
+<br></br><br></br>
+<hr style={{borderTop: "1px solid lightgrey"}}></hr>
+<br></br>
 <DonutChart 
         
           activeOffset={5}
           animateOnHover={true}
           animationDuration={750}
           animationTypeOnLoad="roll"
-          arcWidth={30}
-          height={250}
-          width={250}
+          arcWidth={20}
+          height={220}
+          width={220}
           onClick={this._handleDemoButtonClick}
           chartTotal={this.state.surveysIncomplete + this.state.surveysCompleted + this.state.surveysInProgress}
           
@@ -349,17 +400,18 @@ Overview</li>
  
 
 <div className="donutChart center">
+<br></br><br></br>
+<hr style={{borderTop: "1px solid lightgrey"}}></hr>
 <br></br>
-
 <DonutChart 
         
           activeOffset={5}
           animateOnHover={true}
           animationDuration={750}
           animationTypeOnLoad="roll"
-          arcWidth={30}
-          height={250}
-          width={250}
+          arcWidth={20}
+          height={220}
+          width={220}
           onClick={this._handleDemoButtonClick}
           chartTotal={this.state.questionOneTotalOne + this.state.questionOneTotalTwo + this.state.questionOneTotalThree + this.state.questionOneTotalFour + this.state.questionOneTotalFive}
           
@@ -392,6 +444,8 @@ Overview</li>
 </div>
 
 <div className="card center" id="commentCard">
+<br></br><br></br>
+<hr style={{borderTop: "1px solid lightgrey"}}></hr>
 
 
  
@@ -404,10 +458,34 @@ Overview</li>
 
 
 
-
 </div>
 
 </div>
+<div className="card center" id="barChart">
+
+
+ 
+
+<div className="donutChart center">
+
+
+
+ <BarChart
+          data={chartData}
+          margin={margins}
+          minBarHeight={1}
+          threshold={threshold}
+          xAxis={xAxis}
+        />
+      
+</div>
+
+
+
+
+</div>
+
+
 </div>
 
 
