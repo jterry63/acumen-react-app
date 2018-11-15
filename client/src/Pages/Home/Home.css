@@ -2,7 +2,7 @@ body {
   font-family: lato;
 }
 
-#hero-img {
+#hero-img1, #hero-img2 {
     width: 100%;
     height: auto;
     position: relative;
@@ -21,13 +21,14 @@ body {
     top: 25%;
     left: 10%;
     height: 300px;
-    width: 500px;
+    width: 600px;
     background-color: transparent;
+    margin: auto;
     
   }
 
   #getStarted {
-    color: black;
+    color: #262c34;
     background-color: white;
     border-radius: 15px;
     padding: 0 65px;
@@ -45,9 +46,79 @@ body {
     
   }
 
-  #slogan-text {
+  #slogan-text1 {
     font-size: 35px;
     text-align: center;
   }
 
+  #slogan-text2 {
+    font-size: 35px;
+    text-align: center;
+    font-weight: lighter;
+  }
+  
+  #hero-img2 {
+    display: none;
+  }
 
+  @media only screen and (max-width: 1500px) {
+
+    #slogan {
+      left: 5%;
+    }
+
+    
+}
+
+@media only screen and (max-width: 1300px) {
+
+  #slogan {
+    left: 2%;
+  }
+
+  #slogan-text1 {
+    font-size: 25px;
+  }
+
+  #slogan-text2 {
+    font-size: 25px;
+  }
+
+  #getStarted {
+    padding: 0 45px;
+   }
+  
+}
+
+@media only screen and (max-width: 1075px) {
+
+  #slogan {
+    left: -50px;
+  }
+}
+
+
+
+
+  @media only screen and (max-width: 900px) {
+  
+    #hero-img1 {
+      display: none;
+    }
+
+    #hero-img2 {
+      display: block;
+
+    }
+
+    #slogan {
+      top: 7%;
+      left: 10%;
+    }
+
+    #getStarted {
+      padding: 0 25px;
+     }
+
+    
+}
