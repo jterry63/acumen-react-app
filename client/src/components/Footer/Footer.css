@@ -3,6 +3,36 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
 }
 
+.footer-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    
+   }
+
+   .footer-card {
+    position: absolute;
+    top: 55%;
+    width: 99%;
+    height: auto;
+   }
+
+   #footer-image {
+    width: 100vw;
+    margin-bottom: -5px;
+   }
+
+#footer-links {
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+
+.mobile-footer {
+    background-color: black;
+    display: none;
+
+}
+
 .simple-subscription-form {
     
     float: left;
@@ -28,13 +58,9 @@
 }
 
 
-.page-footer {
-    float: left;
-    width: 100%;
-    position: relative;
-    top: 53%;
-    
+.page-footer { 
     background-color: transparent;
+    
 }
 
 .fa-2x {
@@ -83,3 +109,6 @@ h6 {
 #arrow-icon {
     font-size: small;
 }
+
+
+

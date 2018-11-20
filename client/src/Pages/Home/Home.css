@@ -2,7 +2,7 @@ body {
   font-family: lato;
 }
 
-#hero-img1, #hero-img2 {
+#hero-img1, #hero-img2, #hero-img3 {
     width: 100%;
     height: auto;
     position: relative;
@@ -14,6 +14,16 @@ body {
     position: relative;
     top: 0;
     left: 0;
+    
+   }
+
+   .top-card {
+    position: absolute;
+    top: 25%;
+    left: 5%;
+    width: auto;
+    height: auto;
+    
    }
 
    #slogan {
@@ -45,60 +55,59 @@ body {
     
     
   }
-
-  #slogan-text1 {
-    font-size: 35px;
-    text-align: center;
-  }
-
-  #slogan-text2 {
-    font-size: 35px;
-    text-align: center;
-    font-weight: lighter;
-  }
   
   #hero-img2 {
     display: none;
   }
 
+  #hero-img3 {
+    display: none;
+  }
+
   @media only screen and (max-width: 1500px) {
 
-    #slogan {
-      left: 5%;
+    #slogan-text1 {
+    font-size: 35px !important;
     }
+
+    #slogan-text2 {
+      font-size: 35px !important;
+      }
 
     
 }
 
 @media only screen and (max-width: 1300px) {
 
-  #slogan {
-    left: 2%;
-  }
-
-  #slogan-text1 {
-    font-size: 25px;
-  }
-
-  #slogan-text2 {
-    font-size: 25px;
-  }
-
   #getStarted {
     padding: 0 45px;
    }
+
+   #slogan-text1 {
+    font-size: 30px !important;
+    }
+
+    #slogan-text2 {
+      font-size: 30px !important;
+      }
   
 }
 
 @media only screen and (max-width: 1075px) {
 
-  #slogan {
-    left: -50px;
-  }
+  #getStarted {
+    padding: 0 45px;
+   }
+
+   #slogan-text1 {
+    font-size: 25px !important;
+    }
+
+    #slogan-text2 {
+      font-size: 25px !important;
+      }
+  
 }
-
-
-
 
   @media only screen and (max-width: 900px) {
   
@@ -111,14 +120,62 @@ body {
 
     }
 
-    #slogan {
-      top: 7%;
-      left: 10%;
-    }
-
     #getStarted {
-      padding: 0 25px;
+      padding: 0 30px;
+      font-size: 12px;
+      height: auto;
      }
 
+   .top-card {
+     top: 10%;
+     left: 0%;
+     width: 100%;
+   }
+
+   #slogan-text1 {
+    font-size: 25px !important;
+    }
+
+    #slogan-text2 {
+      font-size: 25px !important;
+      }
     
+}
+
+
+@media only screen and (max-width: 550px) {
+
+
+  #hero-img2 {
+    display: none;
+  }
+
+  #hero-img3 {
+    display: block;
+
+  }
+
+  .top-card {
+    top: 15%;
+    left: 0%;
+    width: 100%;
+  }
+
+  #getStarted {
+    padding: 0 30px;
+    font-size: 12px;
+   }
+
+   #slogan-text1 {
+    font-size: 23px !important;
+    text-align: center;
+  }
+
+  #slogan-text2 {
+    font-size: 23px !important;
+    text-align: center;
+    font-weight: lighter;
+  }
+  
+  
 }
