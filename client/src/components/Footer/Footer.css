@@ -29,7 +29,10 @@
 
 .mobile-footer {
     background-color: black;
-    display: none;
+    position: absolute;
+    bottom: 0;
+    
+   
 
 }
 
@@ -111,4 +114,31 @@ h6 {
 }
 
 
+@media only screen and (max-width: 994px) {
+
+    #footer-image {
+        display: none;
+       }
+
+       #footer-links {
+        margin-left: 0%;
+        
+       
+    }
+
+    .footer-link {
+        color: black;
+    }
+
+    .footer-link-header {
+        color: black;
+    }
+
+    .fa-2x {
+        color: black;
+    }
+    
+
+    
+}
 

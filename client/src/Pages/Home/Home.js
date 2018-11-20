@@ -70,7 +70,7 @@ class Home extends Component {
     </div>
     <Nav />
     
-    <Body />
+    {/* <Body />
 
       <Parallax
             blur={0}
@@ -86,7 +86,9 @@ class Home extends Component {
             <div style={{ height: '500px' }} />
         </Parallax>
 
-  <Body />
+  <Body /> */}
+
+<Body />
   
 <Footer />
 
