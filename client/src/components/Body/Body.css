@@ -14,3 +14,18 @@
     width: 75%;
     
 }
+
+#platform {
+    background: linear-gradient(to right, #7fd9e4);
+    height: 300px;
+}
+
+#product {
+    background: linear-gradient(to right, #4b97f7);
+    height: 300px;
+}
+
+#company {
+    background: linear-gradient(to right, #4a4af5);
+    height: 300px;
+}
