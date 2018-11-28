@@ -48,6 +48,9 @@ class Admin extends Component {
         bulletSeven: "bullet",
         bulletEight: "bullet",
         bulletNine: "bullet",
+        overviewSection: "block",
+        userSection: "none",
+        surveySection: "none"
         
         
       };
@@ -138,23 +141,26 @@ class Admin extends Component {
           bulletSeven: "bullet",
           bulletEight: "bullet",
           bulletNine: "bullet",
+
+          overviewSection: "block",
+          userSection: "none",
+          surveySection: "none",
         })
       }
 
-      _handleSideNavClickTwo = () => {
-        this.setState({
-          bulletTwo: "bullet-active",
-          bulletOne: "bullet",
-          bulletThree: "bullet",
-          bulletFour: "bullet",
-          bulletFive: "bullet",
-          bulletSix: "bullet",
-          bulletSeven: "bullet",
-          bulletEight: "bullet",
-          bulletNine: "bullet",
-        })
-        // this._handleSmallModalClick()
-      }
+      // _handleSideNavClickTwo = () => {
+      //   this.setState({
+      //     bulletTwo: "bullet-active",
+      //     bulletOne: "bullet",
+      //     bulletThree: "bullet",
+      //     bulletFour: "bullet",
+      //     bulletFive: "bullet",
+      //     bulletSix: "bullet",
+      //     bulletSeven: "bullet",
+      //     bulletEight: "bullet",
+      //     bulletNine: "bullet",
+      //   })
+      // }
 
       _handleSideNavClickThree = () => {
         this.setState({
@@ -167,36 +173,40 @@ class Admin extends Component {
           bulletSeven: "bullet",
           bulletEight: "bullet",
           bulletNine: "bullet",
+
+          overviewSection: "none",
+          surveySection: "none",
+          userSection: "block"
         })
       }
 
-      _handleSideNavClickFour = () => {
-        this.setState({
-          bulletFour: "bullet-active",
-          bulletOne: "bullet",
-          bulletTwo: "bullet",
-          bulletThree: "bullet",
-          bulletFive: "bullet",
-          bulletSix: "bullet",
-          bulletSeven: "bullet",
-          bulletEight: "bullet",
-          bulletNine: "bullet",
-        })
-      }
+      // _handleSideNavClickFour = () => {
+      //   this.setState({
+      //     bulletFour: "bullet-active",
+      //     bulletOne: "bullet",
+      //     bulletTwo: "bullet",
+      //     bulletThree: "bullet",
+      //     bulletFive: "bullet",
+      //     bulletSix: "bullet",
+      //     bulletSeven: "bullet",
+      //     bulletEight: "bullet",
+      //     bulletNine: "bullet",
+      //   })
+      // }
 
-      _handleSideNavClickFive = () => {
-        this.setState({
-          bulletFive: "bullet-active",
-          bulletOne: "bullet",
-          bulletTwo: "bullet",
-          bulletFour: "bullet",
-          bulletThree: "bullet",
-          bulletSix: "bullet",
-          bulletSeven: "bullet",
-          bulletEight: "bullet",
-          bulletNine: "bullet",
-        })
-      }
+      // _handleSideNavClickFive = () => {
+      //   this.setState({
+      //     bulletFive: "bullet-active",
+      //     bulletOne: "bullet",
+      //     bulletTwo: "bullet",
+      //     bulletFour: "bullet",
+      //     bulletThree: "bullet",
+      //     bulletSix: "bullet",
+      //     bulletSeven: "bullet",
+      //     bulletEight: "bullet",
+      //     bulletNine: "bullet",
+      //   })
+      // }
 
       _handleSideNavClickSix = () => {
         this.setState({
@@ -209,50 +219,55 @@ class Admin extends Component {
           bulletSeven: "bullet",
           bulletEight: "bullet",
           bulletNine: "bullet",
+
+          overviewSection: "none",
+          userSection: "none",
+          surveySection: "block",
         })
       }
 
-      _handleSideNavClickSeven = () => {
-        this.setState({
-          bulletSeven: "bullet-active",
-          bulletOne: "bullet",
-          bulletTwo: "bullet",
-          bulletFour: "bullet",
-          bulletFive: "bullet",
-          bulletSix: "bullet",
-          bulletThree: "bullet",
-          bulletEight: "bullet",
-          bulletNine: "bullet",
-        })
-      }
+      // _handleSideNavClickSeven = () => {
+      //   this.setState({
+      //     bulletSeven: "bullet-active",
+      //     bulletOne: "bullet",
+      //     bulletTwo: "bullet",
+      //     bulletFour: "bullet",
+      //     bulletFive: "bullet",
+      //     bulletSix: "bullet",
+      //     bulletThree: "bullet",
+      //     bulletEight: "bullet",
+      //     bulletNine: "bullet",
+      //   })
+      // }
 
-      _handleSideNavClickEight = () => {
-        this.setState({
-          bulletEight: "bullet-active",
-          bulletOne: "bullet",
-          bulletTwo: "bullet",
-          bulletFour: "bullet",
-          bulletFive: "bullet",
-          bulletSix: "bullet",
-          bulletSeven: "bullet",
-          bulletThree: "bullet",
-          bulletNine: "bullet",
-        })
-      }
+      // _handleSideNavClickEight = () => {
+      //   this.setState({
+      //     bulletEight: "bullet-active",
+      //     bulletOne: "bullet",
+      //     bulletTwo: "bullet",
+      //     bulletFour: "bullet",
+      //     bulletFive: "bullet",
+      //     bulletSix: "bullet",
+      //     bulletSeven: "bullet",
+      //     bulletThree: "bullet",
+      //     bulletNine: "bullet",
+      //   })
+      // }
 
-      _handleSideNavClickNine = () => {
-        this.setState({
-          bulletNine: "bullet-active",
-          bulletOne: "bullet",
-          bulletTwo: "bullet",
-          bulletFour: "bullet",
-          bulletFive: "bullet",
-          bulletSix: "bullet",
-          bulletSeven: "bullet",
-          bulletEight: "bullet",
-          bulletThree: "bullet",
-        })
-      };
+      // _handleSideNavClickNine = () => {
+      //   this.setState({
+      //     bulletNine: "bullet-active",
+      //     bulletOne: "bullet",
+      //     bulletTwo: "bullet",
+      //     bulletFour: "bullet",
+      //     bulletFive: "bullet",
+      //     bulletSix: "bullet",
+      //     bulletSeven: "bullet",
+      //     bulletEight: "bullet",
+      //     bulletThree: "bullet",
+      //   })
+      // };
+
       _handleModalClick = () => {
         this.setState({
           showModal: true,
@@ -528,6 +543,7 @@ Overview</li>
           </div>
 
 
+<div className="overview-section" style={{display: this.state.overviewSection}}>
 
 <div className="centerCards center">
 
@@ -733,7 +749,45 @@ Overview</li>
   
   />
   
-  {this.state.showModal ? (
+  
+    
+        
+          </div>
+        </div>
+      </div>
+
+
+</div>
+
+
+</div>
+
+<div className="user-section" style={{display: this.state.userSection}}>
+
+
+Hello
+
+
+
+</div>
+
+
+<div className="survey-section" style={{display: this.state.surveySection}}>
+
+Hi There
+
+</div>
+
+
+
+
+
+
+
+
+
+
+{this.state.showModal ? (
   <Modal
     aria-describedby='description'
     aria-labelledby='title'
@@ -768,15 +822,6 @@ Overview</li>
     </div>
   </Modal>
 ) : null}   
-    
-        
-          </div>
-        </div>
-      </div>
-
-
-</div>
-
 
 </div>
 
