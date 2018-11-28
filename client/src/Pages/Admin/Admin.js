@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu, Tooltip } from 'mx-react-components';
+import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu, Tooltip, PaginationButtons, MessageBox } from 'mx-react-components';
 import moment from "moment";
 import { BarChart, BarTimeXAxis } from "mx-react-components";
 import d3 from "d3";
@@ -26,7 +26,9 @@ class Admin extends Component {
         demoDrawerOpen2: false,
         selectedItem: null,
         showItems: false,
-        showMenu: false, 
+        showMenu: false,
+        showModal: false,
+        showSmallModal: false, 
         surveys: [],
         questionOneTotalOne: 1,
         questionOneTotalTwo: 5,
@@ -36,7 +38,16 @@ class Admin extends Component {
         surveysDeployed: 50,
         surveysCompleted: 45,
         surveysIncomplete: 9,
-        surveysInProgress: 6
+        surveysInProgress: 6, 
+        bulletOne: "bullet-active",
+        bulletTwo: "bullet",
+        bulletThree: "bullet",
+        bulletFour: "bullet",
+        bulletFive: "bullet",
+        bulletSix: "bullet",
+        bulletSeven: "bullet",
+        bulletEight: "bullet",
+        bulletNine: "bullet",
         
         
       };
@@ -116,6 +127,153 @@ class Admin extends Component {
         });
       };
 
+      _handleSideNavClickOne = () => {
+        this.setState({
+          bulletOne: "bullet-active",
+          bulletTwo: "bullet",
+          bulletThree: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickTwo = () => {
+        this.setState({
+          bulletTwo: "bullet-active",
+          bulletOne: "bullet",
+          bulletThree: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+        // this._handleSmallModalClick()
+      }
+
+      _handleSideNavClickThree = () => {
+        this.setState({
+          bulletThree: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickFour = () => {
+        this.setState({
+          bulletFour: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletThree: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickFive = () => {
+        this.setState({
+          bulletFive: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletFour: "bullet",
+          bulletThree: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickSix = () => {
+        this.setState({
+          bulletSix: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletThree: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickSeven = () => {
+        this.setState({
+          bulletSeven: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletThree: "bullet",
+          bulletEight: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickEight = () => {
+        this.setState({
+          bulletEight: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletThree: "bullet",
+          bulletNine: "bullet",
+        })
+      }
+
+      _handleSideNavClickNine = () => {
+        this.setState({
+          bulletNine: "bullet-active",
+          bulletOne: "bullet",
+          bulletTwo: "bullet",
+          bulletFour: "bullet",
+          bulletFive: "bullet",
+          bulletSix: "bullet",
+          bulletSeven: "bullet",
+          bulletEight: "bullet",
+          bulletThree: "bullet",
+        })
+      };
+      _handleModalClick = () => {
+        this.setState({
+          showModal: true,
+          showSmallModal: false
+        });
+      };
+    
+      _handleSmallModalClick = () => {
+        this.setState({
+          showModal: true,
+          showSmallModal: true
+        });
+      };
+    
+      _handleModalClose = () => {
+        this.setState({
+          showModal: false,
+          showSmallModal: false
+        });
+      };
+
 
       _renderDrawer = () => {
         const styles = this.styles();
@@ -127,8 +285,8 @@ class Admin extends Component {
             contentStyle={styles.content}
             headerMenu={({ close }) => (
               <HeaderMenu
-                buttonIcon='gear'
-                buttonText='Settings'
+                buttonIcon='sync'
+                
                 items={[
                   { icon: 'auto', onClick: this._handleSimpleSelectClick, text: 'Auto' },
                   { icon: 'kids', onClick: this._handleSimpleSelectClick, text: 'Kids' },
@@ -145,8 +303,55 @@ class Admin extends Component {
               return (
                 <div>
                   {this.state.clickedMenu && <code>You clicked: {this.state.clickedMenu.text}</code>}
+                  <PaginationButtons
+                    currentPage={1}
+                    // onClick={this._handleButtonClick}
+                    totalPages={8}
+                  />
+                      <br></br>
+
+                         <MessageBox
+          color={Styles.Colors.PRIMARY}
+          icon='submit-feedback'
+          title='Question One: How happy are you working at Acumen Inc?'
+        />
+        <br></br>
+       
+
+                  <div className="drawer-comments">
+              
+                  <table>
+        <tbody>
+          <tr>
+            <td> <div className="drawer-bullet-positive"/> I really enjoy working here. I feel comfortable with the people I work with and I am happy with our management team. I think we could work on our culture but overall I am satisfied. </td>
+          </tr>
+          <tr>
+            <td> <div className="drawer-bullet-neutral"/> It is a decent place to work. The benefits are great but our time off policy could really use some adjustments. </td>
+          </tr>
+          <tr>
+            <td> <div className="drawer-bullet-negative"/> It's not great. I have been struggling to understand why our quotas are so high and continue to increase even when we miss our targets each quarter. It doesn't make any sense and puts a lot of added stress on us. We need to look at historical sales figures and built attainable quotes from that.</td>
+          </tr>
+          <tr>
+            <td> <div className="drawer-bullet-positive"/> I would recommend this company to anybody because I feel like I am valued here. I have never worked at a company that truly rewards their employees like ours does.</td>
+          </tr>
+          <tr>
+            <td> <div className="drawer-bullet-positive"/> Yep, its great. Been here a month and I am happy.</td>
+          </tr>
+          <tr>
+            <td> <div className="drawer-bullet-neutral"/> I would say that I am somewhat happy working here but I am worried about my career advancement opportunites. I was told when I was hired on that I would be able to move up in the organization but I am having a hard time seeing that path. I think more 1:1s with management would be helpful. </td>
+          </tr>
+          <tr>
+            <td><div className="drawer-bullet-positive"/> This company is the best and truly believes in our mission and values as an organization. I am proud to be a part of the team.</td>
+          </tr>
+          
+          
+        </tbody></table>
+                  
+                  </div>
                   <p id='description'>
-                  <tbody>
+
+
+                  {/* <tbody>
             {this.state.surveys.map(survey =>
               <tr key={survey.id}>
                 <td>{survey.question1_value}</td>
@@ -169,14 +374,19 @@ class Admin extends Component {
               </tr>
               
             )}
-        </tbody>
+        </tbody> */}
+
+ 
+
+
                   </p>
+       
+
+
                   <p>
                     <Button onClick={close}>Close Drawer</Button>
                   </p>
-                  <p>
-                    
-                  </p>
+               
                  
                 </div>
               );
@@ -188,6 +398,9 @@ class Admin extends Component {
     
   render() {
     const styles = this.styles();
+    const imageWidth = this.state.showSmallModal ? 400 : 1000;
+    const imageHeight = this.state.showSmallModal ? 240 : 600;
+    const imageStyle = { width: imageWidth, height: imageHeight, margin: 'auto' };
 
      //data gathering for Bar Chart
  
@@ -253,9 +466,9 @@ class Admin extends Component {
 
                 <CollapsibleContent isExpanded={true} className="additionalClassForContent">
                 <ul className="dropDownList">
-                  <li className="dropDownItem"> <div className="bullet"/>
+                  <li className="dropDownItem" onClick={this._handleSideNavClickOne}> <div className={this.state.bulletOne}/>
 Overview</li>
-                  <li className="dropDownItem">Question Analysis</li>
+                  <li className="dropDownItem" onClick={this._handleSmallModalClick}> <div className={this.state.bulletTwo}/> Question Analysis</li>
                  
                 </ul>
                 </CollapsibleContent>
@@ -270,9 +483,9 @@ Overview</li>
             
                 <CollapsibleContent className="additionalClassForContent">
                 <ul className="dropDownList">
-                  <li className="dropDownItem">All Users</li>
-                  <li className="dropDownItem">Teams</li>
-                  <li className="dropDownItem">Management Analysis</li>
+                  <li className="dropDownItem" onClick={this._handleSideNavClickThree}> <div className={this.state.bulletThree}/> All Users</li>
+                  <li className="dropDownItem" onClick={this._handleSmallModalClick}> <div className={this.state.bulletFour}/> Teams</li>
+                  <li className="dropDownItem" onClick={this._handleSmallModalClick}> <div className={this.state.bulletFive}/> Management Analysis</li>
                 </ul>
                 </CollapsibleContent>
  
@@ -286,10 +499,10 @@ Overview</li>
                 
                 <CollapsibleContent className="additionalClassForContent">
                 <ul className="dropDownList">
-                  <li className="dropDownItem">Live Surveys</li>
-                  <li className="dropDownItem">Concluded Surveys</li>
-                  <li className="dropDownItem">Create</li>
-                  <li className="dropDownItem">Deploy</li>
+                  <li className="dropDownItem" onClick={this._handleSideNavClickSix}> <div className={this.state.bulletSix}/> Live Surveys</li>
+                  <li className="dropDownItem" onClick={this._handleSmallModalClick}> <div className={this.state.bulletSeven}/> Concluded Surveys</li>
+                  <li className="dropDownItem" onClick={this._handleSmallModalClick}> <div className={this.state.bulletEight}/> Create</li>
+                  <li className="dropDownItem" onClick={this._handleSmallModalClick}> <div className={this.state.bulletNine}/> Deploy</li>
             
                 </ul>
                 </CollapsibleContent>
@@ -313,6 +526,8 @@ Overview</li>
           />
 
           </div>
+
+
 
 <div className="centerCards center">
 
@@ -423,10 +638,6 @@ Overview</li>
      </div>
 
 
-
-
-
-
 </div>
 
 <div className="card center" id="commentCard">
@@ -521,7 +732,42 @@ Overview</li>
    
   
   />
-          
+  
+  {this.state.showModal ? (
+  <Modal
+    aria-describedby='description'
+    aria-labelledby='title'
+    buttons={[
+    
+      {
+        
+        label: 'Close',
+        onClick: this._handleModalClose,
+        type: 'primary'
+      }
+    ]}
+    footerContent={(
+      <div style={{ color: '#ACB0B3', fontSize: '15px', padding: '1px 0' }}>
+       Check back soon for updates!
+      </div>
+    )}
+    footerStyle={{ padding: '40px 20px' }}
+    onRequestClose={this._handleModalClose}
+    portalTo='#app'
+    showFooter={true}
+    showTitleBar={true}
+    title='Coming Soon...'
+    
+   
+   
+  >
+    <div style={{ padding: 20, textAlign: 'center' }}>
+      <p id='title' style={{ fontFamily: 'Helvetica, Arial, sans-serif', textAlign: 'center', fontSize: "20px" }}>This feature is currently under development</p>
+     
+      <img alt='Random picture from the internet' src={`http://www.akrotics.com/assets/img/layout/software-dev.gif`} style={imageStyle} />
+    </div>
+  </Modal>
+) : null}   
     
         
           </div>

@@ -23,6 +23,7 @@
 
 .additionalClassForHead {
     background-color: #252c35 !important;
+    font-size: 15px;
 }
 
 .additionalClassForContent {
@@ -45,7 +46,7 @@
     cursor: pointer;
 }
 
-.bullet {
+.bullet-active {
     background-color: #9ae2e6;
     border-radius: 6px;
     height: 6px;
@@ -58,6 +59,67 @@
     margin-top: 8px;
  
 }
+
+.bullet {
+    display: none;
+    background-color: #9ae2e6;
+    border-radius: 6px;
+    height: 6px;
+    margin-left: -20px;
+    margin-right: 10px;
+    width: 6px;
+    box-shadow: rgb(161,237,214) 0px 0px 10px;
+    float: left;
+    position: relative;
+    margin-top: 8px;
+ 
+}
+
+.drawer-bullet-positive {
+    
+    background-color: #6da97f;
+    border-radius: 10px;
+    height: 10px;
+    margin-left: -40px;
+    margin-right: 10px;
+    width: 10px;
+    box-shadow: rgb(106,168,79) 0px 0px 10px;
+    float: left;
+    position: relative;
+    margin-top: 8px;
+ 
+}
+
+.drawer-bullet-neutral {
+    
+    background-color: #519aca;
+    border-radius: 10px;
+    height: 10px;
+    margin-left: -40px;
+    margin-right: 10px;
+    width: 10px;
+    box-shadow: rgb(81,154,202) 0px 0px 10px;
+    float: left;
+    position: relative;
+    margin-top: 8px;
+ 
+}
+
+.drawer-bullet-negative {
+    
+    background-color: #969ca5;
+    border-radius: 10px;
+    height: 10px;
+    margin-left: -40px;
+    margin-right: 10px;
+    width: 10px;
+    box-shadow: rgb(150,156,165) 0px 0px 10px;
+    float: left;
+    position: relative;
+    margin-top: 8px;
+ 
+}
+
 
 .mx-donutchart {
     margin: auto;
@@ -139,4 +201,10 @@ margin-left: 6.5%;
 .totalComments {
     color: grey;
     cursor: pointer;
+}
+
+.drawer-comments {
+    background-color: white;
+    height: 100%;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);
 }
