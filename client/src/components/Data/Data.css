@@ -9,7 +9,6 @@
 .nav-master-survey {
     background-color: rgba(255,255,255, .8);
     position: fixed;
-   
 }
 
 #progressBar {
@@ -37,16 +36,12 @@
 
   #surveyHeader {
     background: linear-gradient(to right, #5433ff, #20bdff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
     padding-top: 1rem !important;
     font-family: lato;
-   
-    
-  
   }
 
   .light {
@@ -68,7 +63,6 @@
       background-color: whitesmoke;
       height: 100px;
       border-bottom: 0px !important;
-    
     }
 
   #save1 {
@@ -97,10 +91,9 @@
 
   .card-container {
     height: 650px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
-  padding: 10px;
-  width: 92%;
-  
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1) !important;
+    padding: 10px;
+    width: 92%;
 }
 
 #q-two-visible, #q-three-visible, #q-four-visible, #q-five-visible, #q-six-visible, #q-seven-visible, #q-eight-visible {
