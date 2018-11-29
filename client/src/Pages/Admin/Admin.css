@@ -208,3 +208,13 @@ margin-left: 6.5%;
     height: 100%;
     box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);
 }
+
+#users {
+
+    margin-left: 8%;
+  
+    width: 85%;
+    height: 700px;
+    float: left;
+    
+}

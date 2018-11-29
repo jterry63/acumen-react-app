@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu, Tooltip, PaginationButtons, MessageBox } from 'mx-react-components';
+import { Icon, Button, SimpleSelect, ButtonGroup, DonutChart, Drawer, HeaderMenu, Modal, Menu, Tooltip, PaginationButtons, MessageBox, SimpleInput } from 'mx-react-components';
 import moment from "moment";
 import { BarChart, BarTimeXAxis } from "mx-react-components";
 import d3 from "d3";
@@ -764,8 +764,232 @@ Overview</li>
 
 <div className="user-section" style={{display: this.state.userSection}}>
 
+<br></br>
+<div className="card center" id="users">
 
-Hello
+
+<div className="card-horizontal">
+  
+   <div className="card-stacked">
+     <div className="card-content">
+     <div className="userBtn" style={{textAlign: "left"}}>
+     <Button type='neutral'>  <Icon
+          
+          size={20}
+          
+          type='add'
+        /> Add User</Button>
+      
+     </div>
+     </div>
+     <div className="card-action">
+  
+     <table>
+        <tbody><tr>
+            <th>Firstname</th>
+            <th>Lastname</th> 
+            <th>Email</th>
+            <th>Team</th>
+          </tr>
+
+          <tr>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Jill',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Smith',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+              </td> 
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'jill.smith@acumen.com',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Engineering',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+          </tr>
+       
+          <tr>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Taylor',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Christensen',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+              </td> 
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'taylor.christensen@acumen.com',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Sales',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+          </tr>
+
+<tr>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Allen',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Carr',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+              </td> 
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'allen.carr@acumen.com',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Marketing',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+          </tr>
+
+<tr>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Dustin',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Atkinson',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+              </td> 
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'dustin.atkinson@acumen.com',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+            <td>
+            <SimpleInput
+          elementProps={{
+            id: 'inputOne',
+            placeholder: 'Marketing',   
+          }}
+            styles={{
+            wrapper: { height: '55px'},
+        }}
+        />
+            </td>
+          </tr>
+
+        </tbody></table>
+
+   
+     </div>
+   </div>
+ </div>
+
+
+</div>
+
 
 
 
